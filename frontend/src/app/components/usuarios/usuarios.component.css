@@ -1,0 +1,61 @@
+.table-wrapper {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+thead tr {
+  background: linear-gradient(135deg, #1558b0 0%, #1a73e8 100%);
+}
+
+thead th {
+  color: white;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1.1rem 1.2rem;
+  border: none;
+}
+
+tbody tr {
+  transition: all 0.2s;
+  border-bottom: 1px solid #f0f4f8;
+}
+
+tbody tr:hover {
+  background-color: #e8f0fe !important;
+}
+
+tbody td {
+  padding: 1rem 1.2rem;
+  vertical-align: middle;
+  border: none;
+}
+
+.id-badge {
+  background: #e8f0fe;
+  color: #1558b0;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.rol-badge {
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.rol-admin {
+  background: linear-gradient(135deg, #e8f0fe, #c5cae9);
+  color: #1558b0;
+}
+
+.rol-user {
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+  color: #e65100;
+}

@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h2>Categorías</h2>
+    <p class="text-muted mb-0">Gestión de categorías de productos</p>
+  </div>
+  <a routerLink="/categorias/nuevo" class="btn btn-dark" *ngIf="authService.isSuperAdmin()">
+    + Nueva Categoría
+  </a>
+</div>
+
+<div class="table-wrapper">
+  <table class="table table-hover mb-0">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th *ngIf="authService.isSuperAdmin()">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let categoria of categorias">
+      <td><span class="id-badge">{{ categoria.id }}</span></td>
+      <td><strong>{{ categoria.nombre }}</strong></td>
+      <td class="text-muted">{{ categoria.descripcion }}</td>
+      <td *ngIf="authService.isSuperAdmin()">
+        <a [routerLink]="['/categorias/editar', categoria.id]" class="btn-action btn-edit">✏️ Editar</a>
+        <button class="btn-action btn-delete" (click)="eliminar(categoria.id)">🗑️ Eliminar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h2>Productos</h2>
+    <p class="text-muted mb-0">Gestión de inventario de productos</p>
+  </div>
+  <a routerLink="/productos/nuevo" class="btn btn-dark" *ngIf="authService.isSuperAdmin()">
+    + Nuevo Producto
+  </a>
+</div>
+
+<div class="table-wrapper">
+  <table class="table table-hover mb-0">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Categoría</th>
+      <th *ngIf="authService.isSuperAdmin()">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let producto of productos">
+      <td><span class="id-badge">{{ producto.id }}</span></td>
+      <td><strong>{{ producto.nombre }}</strong></td>
+      <td class="text-muted">{{ producto.descripcion }}</td>
+      <td><span class="price-badge">₡{{ producto.precio }}</span></td>
+      <td><span class="stock-badge">{{ producto.cantidadStock }}</span></td>
+      <td><span class="category-badge">{{ producto.categoria?.nombre }}</span></td>
+      <td *ngIf="authService.isSuperAdmin()">
+        <a [routerLink]="['/productos/editar', producto.id]" class="btn-action btn-edit">✏️ Editar</a>
+        <button class="btn-action btn-delete" (click)="eliminar(producto.id)">🗑️ Eliminar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
